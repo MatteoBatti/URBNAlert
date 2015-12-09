@@ -57,6 +57,33 @@
     return [self initWithTitle:title message:message view:nil];
 }
 
+
+-(instancetype)initWithAttributedTitle:(NSAttributedString *)title attributedMessage:(NSAttributedString *)message; {
+    self = [self initWithTitle:nil message:nil];
+    if (self) {
+        self.alertConfig.attributedTitle = title;
+        self.alertConfig.attributedMessage = message;
+    }
+    return self;
+}
+
+-(instancetype)initWithTitle:(NSString *)title attributedMessage:(NSAttributedString *)message;
+{
+    self = [self initWithTitle:title message:nil];
+    if (self) {
+        self.alertConfig.attributedMessage = message;
+    }
+    return self;
+}
+
+-(instancetype)initWithAttributedTitle:(NSAttributedString *)title message:(NSString *)message; {
+    self = [self initWithTitle:nil message:message];
+    if (self) {
+        self.alertConfig.attributedTitle = title;
+    }
+    return self;
+}
+
 #pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -275,12 +275,39 @@
 @property (nonatomic, weak) UIView *firstResponder;
 
 /**
+ * Alert View clip to bounds
+ */
+@property (nonatomic, assign) BOOL clipToBounds;
+
+/**
+ * Button label number of line
+ */
+@property (nonatomic, strong) NSNumber *buttonTitleNumberOfLine;
+
+/**
+ * Button label line break mode
+ */
+@property (nonatomic, assign) NSLineBreakMode buttonTitleLineBreakMode;
+
+/**
+ * Button label text alignement
+ */
+@property (nonatomic, assign) NSTextAlignment buttonTitleTextAlignement;
+
+/**
+ * Button label edge insents
+ */
+@property (nonatomic, assign) UIEdgeInsets buttonTitleEdgeInsets;
+
+
+/**
  *  Returns the correct background color for given an actionType
  *
  *  @param actionType Action type associated with the button
  *
  *  @return
  */
+
 - (UIColor *)buttonTitleColorForActionType:(URBNAlertActionType)actionType isEnabled:(BOOL)enabled;
 
 /**

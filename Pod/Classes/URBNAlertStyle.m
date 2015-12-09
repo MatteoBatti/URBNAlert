@@ -322,8 +322,34 @@
     styler.separatorColor = self.separatorColor;
     styler.separatorHeight = self.separatorHeight;
     styler.useVerticalLayoutForTwoButtons = self.useVerticalLayoutForTwoButtons;
+    styler.clipToBounds = self.clipToBounds;
+    styler.buttonTitleNumberOfLine = self.buttonTitleNumberOfLine;
+    styler.buttonTitleLineBreakMode = self.buttonTitleLineBreakMode;
+    styler.buttonTitleTextAlignement = self.buttonTitleTextAlignement;
+    styler.buttonTitleEdgeInsets = self.buttonTitleEdgeInsets;
     
     return styler;
 }
+
+-(NSLineBreakMode)buttonTitleLineBreakMode
+{
+    return _buttonTitleLineBreakMode ?: NSLineBreakByTruncatingMiddle;
+}
+
+-(NSNumber *)buttonTitleNumberOfLine
+{
+    return _buttonTitleNumberOfLine ?: @1;
+}
+
+-(NSTextAlignment)buttonTitleTextAlignement
+{
+    return _buttonTitleTextAlignement ?: NSTextAlignmentLeft;
+}
+
+-(UIEdgeInsets)buttonTitleEdgeInsets
+{
+    return _buttonTitleEdgeInsets;
+}
+
 
 @end

@@ -41,6 +41,39 @@ typedef void(^URBNAlertViewControllerFinishedDismissing)(BOOL wasTouchedOutside)
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message;
 
 /**
+ *  Initialize with a title and/or message
+ *
+ *  @param title   Optional. The title text displayed in the alert
+ *  @param message Optional. The attributed message text displayed in the alert
+ *
+ *  @return A URBNAlertViewController ready to be configurated further or displayed
+ */
+-(instancetype)initWithTitle:(NSString *)title attributedMessage:(NSAttributedString *)message;
+
+/**
+ *  Initialize with a title and/or message
+ *
+ *  @param title   Optional. The attributed title text displayed in the alert
+ *  @param message Optional. The message text displayed in the alert
+ *
+ *  @return A URBNAlertViewController ready to be configurated further or displayed
+ */
+-(instancetype)initWithAttributedTitle:(NSAttributedString *)title message:(NSString *)message;
+
+
+/**
+ *  Initialize with a title and/or message
+ *
+ *  @param title   Optional. The attributed title text displayed in the alert
+ *  @param message Optional. The attributed message text displayed in the alert
+ *
+ *  @return A URBNAlertViewController ready to be configurated further or displayed
+ */
+-(instancetype)initWithAttributedTitle:(NSAttributedString *)title attributedMessage:(NSAttributedString *)message;
+
+
+
+/**
  *  The actual alertView created & displayed within this view controller
  */
 @property (nonatomic, strong) URBNAlertView *alertView;

@@ -21,6 +21,16 @@
 @property (nonatomic, copy) NSString *message;
 
 /**
+ *  Attributed Title text for the alert
+ */
+@property (nonatomic, copy) NSAttributedString *attributedTitle;
+
+/**
+ *  Atributed Message text for the alert
+ */
+@property (nonatomic, copy) NSAttributedString *attributedMessage;
+
+/**
  *  Array of actions added to the alert
  */
 @property (nonatomic, copy) NSArray *actions;

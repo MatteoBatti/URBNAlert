@@ -41,6 +41,7 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
     if (self) {
         self.alertConfig = config;
         self.alertStyler = alertStyler;
+        self.clipsToBounds = alertStyler.clipToBounds;
         
         if (!customView) {
             // Give it a dummy view
@@ -274,6 +275,9 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
         _titleLabel.font = self.alertStyler.titleFont;
         _titleLabel.textColor = self.alertStyler.titleColor;
         _titleLabel.text = self.alertConfig.title;
+        if (self.alertConfig.attributedTitle) {
+            _titleLabel.attributedText = self.alertConfig.attributedTitle;
+        }
     }
     
     return _titleLabel;
@@ -286,6 +290,9 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
         _messageTextView.font = self.alertStyler.messageFont;
         _messageTextView.textColor = self.alertStyler.messageColor;
         _messageTextView.text = self.alertConfig.message;
+        if (self.alertConfig.attributedMessage) {
+            _messageTextView.attributedText = self.alertConfig.attributedMessage;
+        }
         _messageTextView.textAlignment = self.alertStyler.messageAlignment;
         _messageTextView.scrollEnabled = NO;
         _messageTextView.editable = NO;
@@ -334,6 +341,11 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
     btn.tag = index;
     btn.actionType = action.actionType;
     btn.alertStyler = self.alertStyler;
+    
+    btn.titleLabel.numberOfLines = self.alertStyler.buttonTitleNumberOfLine.integerValue;
+    btn.titleLabel.lineBreakMode =  self.alertStyler.buttonTitleLineBreakMode;
+    btn.titleLabel.textAlignment = self.alertStyler.buttonTitleTextAlignement;
+    btn.titleEdgeInsets = self.alertStyler.buttonTitleEdgeInsets;
     
     [btn setTitle:action.title forState:UIControlStateNormal];
     [btn setTitleColor:titleColor forState:UIControlStateNormal];
