@@ -329,6 +329,13 @@
 }
 
 #pragma mark - Orientation Notifications
+
+-(BOOL)shouldAutorotate
+{
+    return false;
+}
+
+
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     if (self.alertStyler.blurEnabled.boolValue) {
         [self addBlurScreenshotOfSize:size];
