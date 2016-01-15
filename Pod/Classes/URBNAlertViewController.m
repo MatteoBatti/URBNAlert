@@ -107,6 +107,7 @@
     
     if (self.alertConfig.touchOutsideViewToDismiss && !self.viewControllerVisible) {
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAlert:)];
+        tapGesture.cancelsTouchesInView = NO;
         [self.view addGestureRecognizer:tapGesture];
     }
 }
