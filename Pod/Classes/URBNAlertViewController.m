@@ -84,6 +84,12 @@
     return self;
 }
 
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
