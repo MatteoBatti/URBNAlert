@@ -24,7 +24,7 @@
 
 @end
 
-@interface URBNAlertViewController ()
+@interface URBNAlertViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) URBNAlertController *alertController;
 @property (nonatomic, strong) NSLayoutConstraint *yPosConstraint;
@@ -114,6 +114,7 @@
     if (self.alertConfig.touchOutsideViewToDismiss && !self.viewControllerVisible) {
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAlert:)];
         tapGesture.cancelsTouchesInView = NO;
+        tapGesture.delegate = self;
         [self.view addGestureRecognizer:tapGesture];
     }
 }
@@ -394,6 +395,16 @@
     [UIView animateWithDuration:0.3f animations:^{
         [self.view layoutIfNeeded];
     }];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    CGPoint pointInView = [touch locationInView:gestureRecognizer.view];
+    if (CGRectContainsPoint(self.alertView.frame, pointInView)) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end
