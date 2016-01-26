@@ -287,6 +287,7 @@ static NSInteger const kURBNAlertViewHeightPadding = 80.f;
     if (!_messageTextView) {
         _messageTextView = [UITextView new];
         _messageTextView.backgroundColor = [UIColor clearColor];
+        _messageTextView.selectable = NO;
         _messageTextView.font = self.alertStyler.messageFont;
         _messageTextView.textColor = self.alertStyler.messageColor;
         _messageTextView.text = self.alertConfig.message;
