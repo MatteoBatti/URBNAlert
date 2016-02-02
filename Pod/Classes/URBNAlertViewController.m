@@ -87,7 +87,7 @@
 
 -(UIStatusBarStyle)preferredStatusBarStyle
 {
-    return UIStatusBarStyleLightContent;
+    return self.alertConfig.statusBarStyle;
 }
 
 #pragma mark - Lifecycle

@@ -60,4 +60,9 @@
  */
 @property (nonatomic, assign) BOOL touchOutsideViewToDismiss;
 
+/**
+ *  Set Status bar Style default UIStatusBarStyleDefault
+ */
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
+
 @end
