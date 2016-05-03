@@ -106,6 +106,15 @@
     }
 }
 
+- (void) removeChildVC {
+    URBNAlertViewController *avc = self.queue.firstObject;
+    for (UIViewController *vc in avc.childViewControllers) {
+        [vc willMoveToParentViewController:nil];
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+}
+
 - (void)dismissAlertViewController:(URBNAlertViewController *)avc {
     self.alertIsVisible = NO;;
     [avc dismiss];
@@ -114,6 +123,7 @@
 
 - (void)dismissingAlert {
     self.alertIsVisible = NO;
+    [self removeChildVC]
     [self popQueue];
     [self showNextAlert];
 }
