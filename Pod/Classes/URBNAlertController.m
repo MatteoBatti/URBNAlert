@@ -123,7 +123,7 @@
 
 - (void)dismissingAlert {
     self.alertIsVisible = NO;
-    [self removeChildVC]
+    [self removeChildVC];
     [self popQueue];
     [self showNextAlert];
 }
